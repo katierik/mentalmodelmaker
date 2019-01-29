@@ -15,8 +15,8 @@ Then you should be set to export as CSV.
 
     /* Get all the values from the csv file into an array called $csv */
     /*$csv = array_map('str_getcsv', file('sample.csv'));*/
-    $csv = array_map('str_getcsv', file('taskanalysis_1_29.csv'));
-  
+    $csv = array_map('str_getcsv', file('taskanalysis.csv'));
+
 
 
     array_walk($csv, function(&$a) use ($csv) {
@@ -51,7 +51,7 @@ Then you should be set to export as CSV.
         $counter = 0;
         while($counter < $finalvalue){
           if($csv[$counter]['Mental Space'] != $csv[($counter-1)]['Mental Space']){
-            echo('<div class="mentalspace"><h2>'.$csv[$counter]['Mental Space']."</h2>");
+            echo('<div class="mentalspace"><h2>'.$csv[$counter]['Mental Space'].'</h2><div class="contents">');
             $x = $counter;
             while($x <= $finalvalue){
               if($csv[$x]['Mental Space'] == $csv[$counter]['Mental Space']){
@@ -69,7 +69,7 @@ Then you should be set to export as CSV.
               }
               $x++;
             }
-            echo("</div>");/*closing the mental space div*/
+            echo("</div></div>");/*closing the mental space div*/
           }
 
           $counter++;
