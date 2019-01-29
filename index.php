@@ -15,8 +15,8 @@ Then you should be set to export as CSV.
 
     /* Get all the values from the csv file into an array called $csv */
     /*$csv = array_map('str_getcsv', file('sample.csv'));*/
-    /*$csv = array_map('str_getcsv', file('taskanalysis_1_29.csv'));*/
-    $csv = array_map('str_getcsv', file('https://docs.google.com/a/redhat.com/spreadsheets/d/e/2PACX-1vTEQHPBNlJU-9bJpWcbZcDTp_5Ccoxpva5l7-dAeqb2fjALLnN4gilaGxXrkacJj6z0EgciOYlCMS-w/pub?gid=682870518&single=true&output=csv'));
+    $csv = array_map('str_getcsv', file('taskanalysis_1_29.csv'));
+  
 
 
     array_walk($csv, function(&$a) use ($csv) {
