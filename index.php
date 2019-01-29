@@ -9,7 +9,7 @@ Then you should be set to export as CSV.
 
 -->
 
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 
     <?php
 
