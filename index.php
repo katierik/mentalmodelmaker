@@ -9,70 +9,8 @@ Then you should be set to export as CSV.
 
 -->
 
+  <link rel="stylesheet" type="text/css" href="style.css">
 
-  <style>
-
-  body{
-    font-family: 'Overpass', sans-serif;
-    color: #292e34;
-    font-size:14px;
-    padding:16px;
-  }
-
-  h2, h3{
-    text-align:center;
-    line-height:1;
-  }
-
-  .content{
-    display:flex;
-    align-items:flex-start;
-  }
-
-  .mentalspace{
-    background-color: #fff;
-    border: 1px solid #D8D8D8;
-    padding:16px;
-    margin:8px;
-    min-width:250px;
-  }
-
-  .tower{
-    background-color: #f5f5f5;
-    border: 1px solid #D8D8D8;
-    padding:16px;
-    margin:8px;
-  }
-
-  .task{
-    background-color: #ededed;
-    border: 1px solid #D8D8D8;
-    padding:16px;
-    margin:8px;
-  }
-
-  .QE{background-color: #7DC3E8;}
-
-  .PE{background-color: #A2DA9C;}
-
-  .UD{background-color:#8BB4B9;}
-
-  .PM{background-color:#CBC1FF;}
-
-  .RCM{background-color:#FBE8B6;}
-
-  .Other{background-color:#F4B678;}
-
-  .legend{
-    display:flex;
-  }
-
-  .legend div{
-    padding:8px;
-    margin:8px;
-  }
-
-  </style>
     <?php
 
     /* Get all the values from the csv file into an array called $csv */
@@ -123,7 +61,7 @@ Then you should be set to export as CSV.
                     }
                     $y++;
                   }
-                  echo("</div>");/*closing the task towner div*/
+                  echo("</div>");/*closing the task tower div*/
                 }
               }
               $x++;
@@ -133,10 +71,9 @@ Then you should be set to export as CSV.
 
           $counter++;
         }
-
         ?>
+
+
 </div>
-
-
 </body>
 </html>
