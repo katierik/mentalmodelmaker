@@ -21,9 +21,16 @@ https://docs.google.com/spreadsheets/d/1E7wbZL9lz05eHDmCkxT9f9ucIg5O-inJxFKK8wkq
 CSV output of that sample data:
 https://docs.google.com/spreadsheets/d/e/2PACX-1vQFPTjOD4FoGfQpwBtp5eka2LA-5eVCx6Eo4WKc4NMAqzlBlv1JLCUqOhrKNU9LzHU32cxbtXKFaUOc/pub?output=csv
 
+## Usage
+1. Clone/download the files
+2. Configure MAMP (https://www.mamp.info/en/) or your local server of choice to point at the folder where you just put these files (make sure PHP is on)
+3. Open your local host - There will be a generated mental model displaying the data in the "data.csv" file
+4. Open the "index.php" file in a text editor (e.x. https://atom.io/ ) and switch which of the csv reading files is commented out. Now, the csv is reading from an external link. 
+5. Change the link to point at your CSV, OR overwrite the "data.csv" file with your own
+
 ## About Mental Models
 Indi Young wrote a book about this UX research technique. 
-In her book she references a Phython script she wrote to generate these models for Omnigraffle. This script generates it into HTML.
+This script generates a spreadsheet mental model into HTML.
 
 Interview with Young: https://indiyoung.com/why-are-mental-models-important/
 
