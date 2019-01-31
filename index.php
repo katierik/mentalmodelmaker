@@ -6,7 +6,6 @@ The CSV needs to be sorted by both mental space and task tower.
 If you're in excel/google sheets, sort the task tower column a-z first.
 Then sort the mental model column a-z.
 Then you should be set to export as CSV.
-
 -->
 
   <link rel="stylesheet" type="text/css" href="styles.css">
@@ -14,8 +13,10 @@ Then you should be set to export as CSV.
     <?php
 
     /**** Get all the values from the csv file into an array called $csv ****/
+
     /*Sources from a CSV hosted somewhere else*/
     /*$csv = array_map('str_getcsv', file('https://docs.google.com/spreadsheets/d/e/2PACX-1vQFPTjOD4FoGfQpwBtp5eka2LA-5eVCx6Eo4WKc4NMAqzlBlv1JLCUqOhrKNU9LzHU32cxbtXKFaUOc/pub?output=csv'));*/
+
     /*Sources from a local CSV file*/
     $csv = array_map('str_getcsv', file('data.csv'));
 
