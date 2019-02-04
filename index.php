@@ -15,7 +15,6 @@ Then you should be set to export as CSV.
   <script>
     $(document).ready(function(){
         $(".task").click(function() {
-          console.log("click");
           var num = this.id.match(/\d+/)[0];
           $(".extras").hide();
           $("#extras_" + num).show();
