@@ -22,8 +22,6 @@ h2, h3{
 
 .mentalspace{
   background-color: #fff;
-
-
   -webkit-box-shadow: 7px 7px 7px 0px rgba(204,204,204,0.61);
   -moz-box-shadow: 7px 7px 7px 0px rgba(204,204,204,0.61);
   box-shadow: 7px 7px 7px 0px rgba(204,204,204,0.61);
@@ -43,6 +41,12 @@ h2, h3{
   background-color: #ededed;
 }
 
+.task:hover{
+  -webkit-box-shadow: 3px 3px 3px 0px rgba(204,204,204,0.61);
+  -moz-box-shadow: 3px 3px 3px 0px rgba(204,204,204,0.61);
+  box-shadow: 3px 3px 3px 0px rgba(204,204,204,0.61);
+}
+
 .QE{background-color: #7DC3E8;}
 
 .PE{background-color: #A2DA9C;}
@@ -54,6 +58,28 @@ h2, h3{
 .RCM{background-color:#FBE8B6;}
 
 .Other{background-color:#F4B678;}
+
+.extras{
+  font-size:11px;
+  padding-top:16px;
+  max-height:150px;
+  overflow:auto;
+  display:flex;
+  flex-wrap:wrap;
+  display:none;
+}
+
+.pid{
+  background-color:#fff;
+  border-radius:50%;
+  height:24px;
+  width:24px;
+  text-align:center;
+  line-height:24px;
+  font-weight:bold;
+}
+
+/***Legend and settings***/
 
 .legend{
   display:flex;

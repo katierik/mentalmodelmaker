@@ -10,6 +10,19 @@ Then you should be set to export as CSV.
 
   <link rel="stylesheet" type="text/css" href="styles.css">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+        $(".task").click(function() {
+          console.log("click");
+          var num = this.id.match(/\d+/)[0];
+          $(".extras").hide();
+          $("#extras_" + num).show();
+      });
+    }); 
+  </script>
+
     <?php
 
     /**** Get all the values from the csv file into an array called $csv ****/
@@ -57,6 +70,7 @@ $csv = array_map('str_getcsv', file('https://docs.google.com/spreadsheets/d/e/2P
         <div><a href="interviews/NellyCredi/index.html" target="_blank">NC</a></div>
         <div><a href="interviews/PaulGallagher/index.html" target="_blank">PG</a></div>
         <div><a href="interviews/RyanHartman/index.html" target="_blank">RH</a></div>
+        <div><a href="interviews/VanessaRamos/index.html" target="_blank">VR</a></div>
       </div>
     </div>
     <div class="content">
@@ -77,7 +91,7 @@ $csv = array_map('str_getcsv', file('https://docs.google.com/spreadsheets/d/e/2P
                   $y = $x; /*Counter to go through the atomic tasks now*/
                   while($y <= $finalvalue){
                     if($csv[$y]['Task tower'] == $csv[($x)]['Task tower']){
-                      echo('<div class="task '. $csv[$y]['CleanType'].'" id="'.$csv[$y]['TID'].'">'. $csv[$y]['Atomic task'] . "</div>");
+                      echo('<div class="task '. $csv[$y]['CleanType'].'" id="task_'.$csv[$y]['TID'].'">'. $csv[$y]['Atomic task'] . '<div class="extras" id="extras_'.$csv[$y]['TID'].'"><div class="pid">' . $csv[$y]['ID'] . '</div><div class="quote">'.$csv[$y]['Quote'].'</div></div>' . "</div>");
                     }
                     $y++;
                   }
