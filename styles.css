@@ -60,22 +60,17 @@ h2, h3{
 .Other{background-color:#F4B678;}
 
 .extras{
-  font-size:11px;
-  padding-top:16px;
-  max-height:150px;
+  font-size:12px;
+  max-height:300px;
+  min-width:200px;
   overflow:auto;
-  display:flex;
-  flex-wrap:wrap;
-  display:none;
+  background-color: rgba(255,255,255,.4);
+  margin:8px -16px -16px -16px;
+  padding:16px;
+  display:none; /*for jquery show/hide */
 }
 
-.pid{
-  background-color:#fff;
-  border-radius:50%;
-  height:24px;
-  width:24px;
-  text-align:center;
-  line-height:24px;
+.meta{
   font-weight:bold;
 }
 

@@ -20,7 +20,7 @@ Then you should be set to export as CSV.
           $(".extras").hide();
           $("#extras_" + num).show();
       });
-    }); 
+    });
   </script>
 
     <?php
@@ -91,7 +91,7 @@ $csv = array_map('str_getcsv', file('https://docs.google.com/spreadsheets/d/e/2P
                   $y = $x; /*Counter to go through the atomic tasks now*/
                   while($y <= $finalvalue){
                     if($csv[$y]['Task tower'] == $csv[($x)]['Task tower']){
-                      echo('<div class="task '. $csv[$y]['CleanType'].'" id="task_'.$csv[$y]['TID'].'">'. $csv[$y]['Atomic task'] . '<div class="extras" id="extras_'.$csv[$y]['TID'].'"><div class="pid">' . $csv[$y]['ID'] . '</div><div class="quote">'.$csv[$y]['Quote'].'</div></div>' . "</div>");
+                      echo('<div class="task '. $csv[$y]['CleanType'].'" id="task_'.$csv[$y]['TID'].'">'. $csv[$y]['Atomic task'] . '<div class="extras" id="extras_'.$csv[$y]['TID'].'"><div class="meta"><span> Said by ' . $csv[$y]['ID'] . ' </span><span>| TID: '.$csv[$y]['TID'].'</span></div><span class="quote">'.$csv[$y]['Quote'].'</span></div>' . "</div>");
                     }
                     $y++;
                   }
