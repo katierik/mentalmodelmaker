@@ -46,6 +46,18 @@ $csv = array_map('str_getcsv', file('https://docs.google.com/spreadsheets/d/e/2P
         <div class="RCM">RCM</div>
         <div class="Other">Other</div>
       </div>
+      <div class="legend">
+        <h2>Transcript links</h2>
+        <div><a href="interviews/AndrewHills/index.html" target="_blank">AH</a></div>
+        <div><a href="interviews/EmilNadan_Pt1/index.html" target="_blank">EE</a></div>
+        <div><a href="interviews/EmilNadan_Pt2/index.html" target="_blank">EN (some in EE)</a></div>
+        <div><a href="interviews/JoeyBoggs/index.html" target="_blank">JB</a></div>
+        <div><a href="interviews/MartinPitt/index.html" target="_blank">MP</a></div>
+        <div><a href="interviews/MikeMcCormas/index.html" target="_blank">MM</a></div>
+        <div><a href="interviews/NellyCredi/index.html" target="_blank">NC</a></div>
+        <div><a href="interviews/PaulGallagher/index.html" target="_blank">PG</a></div>
+        <div><a href="interviews/RyanHartman/index.html" target="_blank">RH</a></div>
+      </div>
     </div>
     <div class="content">
       <span><?php ?></span>
