@@ -32,8 +32,6 @@ Then you should be set to export as CSV.
     /*Sources from a local CSV file*/
     $csv = array_map('str_getcsv', file('data.csv'));
 
-/*FOR WORKSHOP ONLY*/
-/*$csv = array_map('str_getcsv', file('https://docs.google.com/spreadsheets/d/e/2PACX-1vT1LiH0EoaKF0pnH2cy8M_g_fJ_-u-sgLfnAwGzXD0giOhn6RZYRfcsd8FAjGXsYcuP5g-skS4CmncV/pub?output=csv'));*/
 
 
     array_walk($csv, function(&$a) use ($csv) {
