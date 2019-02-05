@@ -32,8 +32,6 @@ Then you should be set to export as CSV.
     /*Sources from a local CSV file*/
     $csv = array_map('str_getcsv', file('data.csv'));
 
-/*FOR WORKSHOP ONLY*/
-/*$csv = array_map('str_getcsv', file('https://docs.google.com/spreadsheets/d/e/2PACX-1vT1LiH0EoaKF0pnH2cy8M_g_fJ_-u-sgLfnAwGzXD0giOhn6RZYRfcsd8FAjGXsYcuP5g-skS4CmncV/pub?output=csv'));*/
 
 
     array_walk($csv, function(&$a) use ($csv) {
@@ -60,16 +58,16 @@ Then you should be set to export as CSV.
       </div>
       <div class="legend">
         <h2>Transcript links</h2>
-        <div><a href="interviews/AndrewHills/index.html" target="_blank">AH</a></div>
-        <div><a href="interviews/EmilNadan_Pt1/index.html" target="_blank">EE</a></div>
-        <div><a href="interviews/EmilNadan_Pt2/index.html" target="_blank">EN (some in EE)</a></div>
-        <div><a href="interviews/JoeyBoggs/index.html" target="_blank">JB</a></div>
-        <div><a href="interviews/MartinPitt/index.html" target="_blank">MP</a></div>
-        <div><a href="interviews/MikeMcCormas/index.html" target="_blank">MM</a></div>
-        <div><a href="interviews/NellyCredi/index.html" target="_blank">NC</a></div>
-        <div><a href="interviews/PaulGallagher/index.html" target="_blank">PG</a></div>
-        <div><a href="interviews/RyanHartman/index.html" target="_blank">RH</a></div>
-        <div><a href="interviews/VanessaRamos/index.html" target="_blank">VR</a></div>
+        <div><a href="interviews/AndrewHills.html" target="_blank">AH</a></div>
+        <div><a href="interviews/EmilNadan_1.html" target="_blank">EE</a></div>
+        <div><a href="interviews/EmilNadan_2.html" target="_blank">EN (some in EE)</a></div>
+        <div><a href="interviews/JoeyBoggs.html" target="_blank">JB</a></div>
+        <div><a href="interviews/MartinPitt.html" target="_blank">MP</a></div>
+        <div><a href="interviews/MikeMcCormas.html" target="_blank">MM</a></div>
+        <div><a href="interviews/NellyCredi.html" target="_blank">NC</a></div>
+        <div><a href="interviews/PaulGallagher.html" target="_blank">PG</a></div>
+        <div><a href="interviews/RyanHartman.html" target="_blank">RH</a></div>
+        <div><a href="interviews/VanessaRamos.html" target="_blank">VR</a></div>
       </div>
     </div>
     <div class="content">
