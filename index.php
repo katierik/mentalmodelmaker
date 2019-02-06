@@ -19,6 +19,12 @@ Then you should be set to export as CSV.
           $(".extras").hide();
           $("#extras_" + num).show();
       });
+
+      $("#toggleCpaas").click(function() {
+        $(".not_relevant").toggle();
+        $(".No").toggle();
+        $("#relevancyLegend").toggle();
+      });
     });
   </script>
 
@@ -33,12 +39,29 @@ Then you should be set to export as CSV.
     $csv = array_map('str_getcsv', file('data.csv'));
 
 
-
+    /* Process CSV*/
     array_walk($csv, function(&$a) use ($csv) {
       $a = array_combine($csv[0], $a);
     });
     array_shift($csv); # remove column header
 
+    /* How many items in the CSV */
+    $csvcount = count($csv);
+
+
+    function relevantTaskTower($row){
+      $y = $row;
+      global $csv, $csvcount;
+      while($y <= $csvcount){
+        if($csv[$y]['Task tower'] === $csv[($row)]['Task tower']){
+          if(strcmp($csv[($y)]['IsOurs'],'Yes') == 0){
+            return " relevant ";
+          }
+        }
+        $y++;
+      }
+      return " not_relevant ";
+    }
 
     ?>
 
@@ -69,26 +92,32 @@ Then you should be set to export as CSV.
         <div><a href="interviews/RyanHartman.html" target="_blank">RH</a></div>
         <div><a href="interviews/VanessaRamos.html" target="_blank">VR</a></div>
       </div>
+      <button id="toggleCpaas">Toggle CPaaS Relevancy</button>
+      <div id="relevancyLegend" class="legend">
+        <div class="flex-it">
+          <div class="high">High</div>
+          <div class="med">Med</div>
+          <div class="low">Low</div>
+        </div>
+      </div>
     </div>
     <div class="content">
       <span><?php ?></span>
         <?php
         $x=0;
-        /*Number of iterations depends on how many values in the csv*/
-        $finalvalue = count($csv);
         $counter = 0;
-        while($counter < $finalvalue){
+        while($counter < $csvcount){
           if($csv[$counter]['Mental Space'] != $csv[($counter-1)]['Mental Space']){
             echo('<div class="mentalspace"><h2>'.$csv[$counter]['Mental Space'].'</h2><div class="contents">');
             $x = $counter;
-            while($x <= $finalvalue){
+            while($x <= $csvcount){
               if($csv[$x]['Mental Space'] == $csv[$counter]['Mental Space']){
                 if($csv[$x]['Task tower'] != $csv[($x-1)]['Task tower']){
-                  echo('<div class="tower"><h3>'. $csv[$x]['Task tower'] . "</h3>");
+                  echo('<div class="tower' . relevantTaskTower($x) . '"><h3>'. $csv[$x]['Task tower'] . "</h3>");
                   $y = $x; /*Counter to go through the atomic tasks now*/
-                  while($y <= $finalvalue){
+                  while($y <= $csvcount){
                     if($csv[$y]['Task tower'] == $csv[($x)]['Task tower']){
-                      echo('<div class="task '. $csv[$y]['CleanType'].'" id="task_'.$csv[$y]['TID'].'">'. $csv[$y]['Atomic task'] . '<div class="extras" id="extras_'.$csv[$y]['TID'].'"><div class="meta"><span> Said by ' . $csv[$y]['ID'] . ' </span><span>| TID: '.$csv[$y]['TID'].'</span></div><span class="quote">'.$csv[$y]['Quote'].'</span></div>' . "</div>");
+                      echo('<div class="task ' . $csv[$y]['CleanType'] . ' ' . $csv[$y]['IsOurs'] . ' ' . $csv[$y]['Timeline'] . '" id="task_'.$csv[$y]['TID'].'">'. $csv[$y]['Atomic task'] . '<div class="extras" id="extras_'.$csv[$y]['TID'].'"><div class="meta"><span> Said by ' . $csv[$y]['ID'] . ' </span><span>| TID: '.$csv[$y]['TID'].'</span></div><span class="quote">'.$csv[$y]['Quote'].'</span></div>' . "</div>");
                     }
                     $y++;
                   }
