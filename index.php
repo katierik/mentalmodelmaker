@@ -21,9 +21,12 @@ Then you should be set to export as CSV.
       });
 
       $("#toggleCpaas").click(function() {
-        $(".not_relevant").toggle();
-        $(".No").toggle();
-        $("#relevancyLegend").toggle();
+        $(".not_relevant").toggle(); /*Toggle irrelevant task towers */
+        $(".No").toggle(); /*Toggle irrelevant tasks */
+        $("#relevancyLegend").toggle(); /*Toggle legend of high/med/low */
+        $(".High").toggleClass("indicateHigh");
+        $(".Med").toggleClass("indicateMed");
+        $(".Low").toggleClass("indicateLow");
       });
     });
   </script>
@@ -48,19 +51,46 @@ Then you should be set to export as CSV.
     /* How many items in the CSV */
     $csvcount = count($csv);
 
-
+    /*Determines if there are tasks marked as relevant in a given task tower */
     function relevantTaskTower($row){
       $y = $row;
       global $csv, $csvcount;
       while($y <= $csvcount){
         if($csv[$y]['Task tower'] === $csv[($row)]['Task tower']){
           if(strcmp($csv[($y)]['IsOurs'],'Yes') == 0){
-            return " relevant ";
+            return " relevant "; /* returns as soon as it has 1 */
           }
         }
         $y++;
       }
       return " not_relevant ";
+    }
+
+    /*Pass back a generated class for the atomic task box */
+    function taskClass($row){
+      global $csv;
+      $timeline = '';
+
+    if(strcmp($csv[($row)]['IsOurs'],'Yes') == 0){
+        $timeline = $csv[$row]['Timeline'];
+      }
+
+      $taskclass = $csv[$row]['CleanType'] . ' ' . $csv[$row]['IsOurs'] . ' ' . $timeline;
+
+      return $taskclass;
+    }
+
+    /*Pass back all the "extras", ID, who is talking, and the quote, for the atomic task box */
+    function taskExtras($row){
+      global $csv;
+
+      $extrasID = 'extras_' . $csv[$row]['TID'];
+      $personSpeaking = '<span> Said by ' . $csv[$row]['ID'] . '</span>';
+      $taskID = '<span> | TID: '.$csv[$row]['TID'].'</span>';
+      $quote = '<span class="quote">'.$csv[$row]['Quote'].'</span>';
+
+      return '<div class="extras" id="'.$extrasID.'"><div class="meta">'.$personSpeaking.$taskID.'</div>'. $quote .'</div>';
+
     }
 
     ?>
@@ -117,7 +147,7 @@ Then you should be set to export as CSV.
                   $y = $x; /*Counter to go through the atomic tasks now*/
                   while($y <= $csvcount){
                     if($csv[$y]['Task tower'] == $csv[($x)]['Task tower']){
-                      echo('<div class="task ' . $csv[$y]['CleanType'] . ' ' . $csv[$y]['IsOurs'] . ' ' . $csv[$y]['Timeline'] . '" id="task_'.$csv[$y]['TID'].'">'. $csv[$y]['Atomic task'] . '<div class="extras" id="extras_'.$csv[$y]['TID'].'"><div class="meta"><span> Said by ' . $csv[$y]['ID'] . ' </span><span>| TID: '.$csv[$y]['TID'].'</span></div><span class="quote">'.$csv[$y]['Quote'].'</span></div>' . "</div>");
+                      echo('<div class="task ' . taskClass($y) . '" id="task_'.$csv[$y]['TID'].'">'. $csv[$y]['Atomic task']  . taskExtras($y) . "</div>");
                     }
                     $y++;
                   }

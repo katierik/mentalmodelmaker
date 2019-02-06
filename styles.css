@@ -41,7 +41,7 @@ h2, h3{
 
 .task{
   background-color: #ededed;
-  order:10;
+  order:10; /*Used when ordering by cpaas relevancy toggle */
 }
 
 .task:hover{
@@ -97,17 +97,17 @@ h2, h3{
   display:flex;
 }
 
-.high {
+.indicateHigh {
   border:4px green solid;
   order:1;
 }
 
-.med{
+.indicateMed{
   border:2px blue solid;
   order:2;
 }
 
-.low{
+.indicateLow{
   border: 1px solid #D8D8D8; /*same as the task */
   order:3;
 }
