@@ -1,6 +1,11 @@
 # mentalmodelmaker
 Generates a Mental Model Diagram (based on Indi Young's Mental Models technique)
 
+## Images
+![Example of mental modal output](https://github.com/katierik/mentalmodelmaker/blob/master/mentalmodalpic.jpg?raw=true)
+![Example of interaction](https://media.giphy.com/media/dsiINtBSZNq2cGUdE2/giphy.gif)
+
+## Requirements
 Requires a CSV that has the following headers:
 - "Mental Space" - The mental space (refer to Mental Models)
 - "Task tower" - The task tower (refer to Mental Models)
